@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Language Detector</title>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+
+.container {
+    width: 500px;
+    margin: 80px auto;
+    padding: 30px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+.hidden {
+    display: none;
+}
+
+#error {
+    color: red;
+}
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🌍 Language Detector</h2>
+
+    <textarea id="textInput" placeholder="Type something here..."></textarea>
+
+    <button onclick="detectLanguage()">Detect Language</button>
+
+    <div id="loading" class="hidden">Detecting...</div>
+
+    <div id="result"></div>
+</div>
+
+<script>
+async function detectLanguage() {
+    const text = document.getElementById("textInput").value;
+    const resultDiv = document.getElementById("result");
+    const loadingDiv = document.getElementById("loading");
+
+    resultDiv.innerHTML = "";
+    loadingDiv.classList.remove("hidden");
+
+    const response = await fetch("/detect", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ text: text })
+    });
+
+    const data = await response.json();
+    console.log(data,'ddddddd')
+    loadingDiv.classList.add("hidden");
+
+    if (data.success) {
+        resultDiv.innerHTML = `
+            <p><strong>Language:</strong> ${data.language} language</p>
+            <p><strong>Code:</strong> ${data.code}</p>
+        `;
+    } else {
+        resultDiv.innerHTML = `<p class="error">${data.message}</p>`;
+    }
+}
+</script>
+
+</body>
+</html>
