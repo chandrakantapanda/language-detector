@@ -38,14 +38,15 @@ It can automatically identify the language of any text you enter — in seconds!
 ```bash
 git clone https://github.com/your-username/language-detector-fastapi.git
 cd language-detector-fastapi
-
+```
 ---
 
-2. Create a virtual environment (optional but recommended)
+### 2️⃣ Create a virtual environment (optional but recommended)
+```bash
 python -m venv venv
 source venv/bin/activate    # for Linux/Mac
 venv\Scripts\activate       # for Windows
-
+```
 ---
 
 3. Install dependencies
