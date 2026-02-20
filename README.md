@@ -5,6 +5,12 @@ It can automatically identify the language of any text you enter — in seconds!
 
 ---
 
+## 📹 YouTube Tutorial
+🎥 Watch the full Shorts video here:  
+👉 [**Detect Any Language**](https://www.youtube.com/shorts/lKEZU-IkalY)
+
+---
+
 ## 🚀 Features
 - Detects languages like Hindi, English, French, German, Chinese, Japanese, and more.
 - Built with **FastAPI** for backend and **HTML + JavaScript** for frontend.
@@ -49,20 +55,24 @@ venv\Scripts\activate       # for Windows
 ```
 ---
 
-3. Install dependencies
+###  3️⃣ Install dependencies
+```bash
 pip install -r requirements.txt
+```
 
 ---
 
-4. Run the FastAPI app
+### 4️⃣ Run the FastAPI app
+```bash
 uvicorn main:app --reload
-
+```
 
 ---
 
-5. Open your browser
+### 5️⃣ Open your browser
+```bash
 Visit 👉 http://127.0.0.1:8000
-
+```
 ---
 
 🧠 How It Works
@@ -78,12 +88,13 @@ The detected language name and code are displayed instantly on screen.
 ---
 
 📦 Example Output
+```bash
 {
   "success": true,
   "language": "Hindi",
   "code": "hi"
 }
-
+```
 ---
 
 👨‍💻 Author
